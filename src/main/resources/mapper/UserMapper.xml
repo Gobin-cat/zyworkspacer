@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 一个mapper文件只对应dao接口
+	namespace属性值:指定当前的mapper文件管理的Dao接口的全限定名
+-->
+<!--对应到的相对路径个eg：com.AdminDao-->
+<mapper namespace="com.baizhi.dao.UserDao">
+    <select id="selectUsername" parameterType="java.lang.String" resultType="user">
+        select id,username,password,email from tt_user where username=#{username}
+    </select>
+    <insert id="insertUser" parameterType="com.baizhi.entity.User">
+        insert into tt_user values(#{id},#{username},#{password},#{email})
+    </insert>
+</mapper>
